@@ -1,37 +1,46 @@
 <section class="container home-container">
-  <mat-form-field class="example-full-width">
-    <input
-      matInput
-      placeholder="Search by name..."
-      #searchIn
-      (keyup)="onSearch(searchIn.value)"
-    />
-  </mat-form-field>
-  &nbsp;
-  <button mat-flat-button color="primary" (click)="prevPage()">Prev</button>
-  &nbsp;
-  <button
-    mat-flat-button
-    color="primary"
-    (click)="nextPage()"
-    [disabled]="(pokeList | filter : page : search).length === 0"
-  >
-    Next
-  </button>
+  <div class="home-container__inputs">
+    <mat-form-field
+      class="example-full-width"
+      class="home-container__inputs-input"
+    >
+      <input
+        matInput
+        placeholder="Search by name..."
+        #searchIn
+        (keyup)="onSearch(searchIn.value)"
+      />
+    </mat-form-field>
 
-  <table class="table">
+    <div class="home-container__inputs-buttons">
+      <button mat-flat-button color="primary" (click)="prevPage()">
+        Siguiente
+      </button>
+
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="nextPage()"
+        [disabled]="(pokeList | filter : page : search).length === 0"
+      >
+        Anterior
+      </button>
+    </div>
+  </div>
+
+  <table mat-table class="table mat-elevation-z8">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Sprite</th>
+        <th mat-header-cell>#</th>
+        <th mat-header-cell>Nombre</th>
+        <th mat-header-cell>Imagen</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of pokeList | filter : page : search">
-        <td>{{ pokemon.id }}</td>
-        <td>{{ pokemon.name }}</td>
-        <td>
+        <td mat-cell>{{ pokemon.id }}</td>
+        <td mat-cell>{{ pokemon.name }}</td>
+        <td mat-cell>
           <img [src]="pokemon.pic" [alt]="pokemon.name" />
         </td>
       </tr>
