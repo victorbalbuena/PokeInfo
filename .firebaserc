@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-poke-prueba": {
+      "hosting": {
+        "pokemon-prueba-bambu": [
+          "login-poke-prueba"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-poke-prueba"
+  }
+}

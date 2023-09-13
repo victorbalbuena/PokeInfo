@@ -1,0 +1,35 @@
+<p class="nav">
+  <mat-toolbar color="primary" class="items-container">
+    <div>
+      <span routerLink="home" style="cursor: pointer">Pokemon Info</span>
+
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="users/profile"
+        style="cursor: pointer"
+        *ngIf="user$ | async"
+      >
+        Perfil
+      </button>
+    </div>
+    <div>
+      <ng-container *ngIf="user$ | async as user; else showLinks">
+        {{ user.email }}
+
+        <button mat-flat-button color="primary" (click)="onSignOut()">
+          Sign Out
+        </button>
+      </ng-container>
+
+      <ng-template #showLinks>
+        <button mat-flat-button color="primary" routerLink="users/sign-in">
+          Sign In
+        </button>
+        <button mat-flat-button color="primary" routerLink="users/sign-up">
+          Sign Up
+        </button>
+      </ng-template>
+    </div>
+  </mat-toolbar>
+</p>

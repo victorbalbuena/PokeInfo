@@ -1,0 +1,48 @@
+.verification-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 3px 3px 15px #454545;
+    width: 80vw;
+    max-width: unset;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+
+    button {
+      max-width: 120px;
+      margin-top: 10px;
+    }
+
+    h1 {
+      font-size: 23px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .verification-container__main {
+    width: 40vw;
+    max-width: 600px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+  p {
+    font-size: 18px;
+  }
+}

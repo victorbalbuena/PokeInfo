@@ -1,0 +1,14 @@
+<section class="verification-container container">
+  <div class="verification-container__main">
+    <h1>
+      Gracias por registrarte
+      <span
+        >te hemos envíado un correo a <strong> {{ user?.email }}</strong></span
+      >
+    </h1>
+    <p>Por favor revisa tu email para verificar tu cuenta.</p>
+    <button mat-flat-button color="primary" (click)="onResendEmail()">
+      Resend
+    </button>
+  </div>
+</section>
