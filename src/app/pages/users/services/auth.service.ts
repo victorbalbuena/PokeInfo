@@ -104,7 +104,7 @@ export class AuthService {
 
   private checkUserIsVerified(user: User): void {
     const route = user.emailVerified
-      ? '/users/profile'
+      ? '/users/home'
       : '/users/email-verification';
     this.router.navigate([route]);
   }

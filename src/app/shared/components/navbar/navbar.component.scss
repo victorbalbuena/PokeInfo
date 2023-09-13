@@ -1,6 +1,6 @@
 .nav {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   top: 0;
 }
 
@@ -8,4 +8,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logged {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: 14px;
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .username {
+    font-size: 16px;
+    max-width: unset;
+  }
+
+  .logged {
+    gap: 10px;
+  }
 }
