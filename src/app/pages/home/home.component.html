@@ -1,1 +1,40 @@
-<p style="padding-top: 100px">home works!</p>
+<section class="container home-container">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      placeholder="Search by name..."
+      #searchIn
+      (keyup)="onSearch(searchIn.value)"
+    />
+  </mat-form-field>
+  &nbsp;
+  <button mat-flat-button color="primary" (click)="prevPage()">Prev</button>
+  &nbsp;
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="nextPage()"
+    [disabled]="(pokeList | filter : page : search).length === 0"
+  >
+    Next
+  </button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Sprite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokeList | filter : page : search">
+        <td>{{ pokemon.id }}</td>
+        <td>{{ pokemon.name }}</td>
+        <td>
+          <img [src]="pokemon.pic" [alt]="pokemon.name" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

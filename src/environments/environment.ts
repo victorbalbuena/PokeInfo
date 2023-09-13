@@ -1,4 +1,7 @@
 export const environment = {
+  pokeApi: {
+    baseUrl: 'https://pokeapi.co/api/v2',
+  },
   firebase: {
     projectId: 'login-poke-prueba',
     appId: '1:928551106352:web:e5913d4cf634ab7c073af5',
