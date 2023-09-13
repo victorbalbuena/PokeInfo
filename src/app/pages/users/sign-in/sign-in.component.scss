@@ -1,34 +1,51 @@
 .login-container {
-  height: 100vh;
-  width: 100vw;
+  padding-top: 70px;
+  background: unset;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+}
 
-  background: rgb(229, 228, 246);
-  background: linear-gradient(
-    131deg,
-    rgba(229, 228, 246, 1) 0%,
-    rgba(68, 103, 171, 1) 100%
-  );
+@media (min-width: 768px) {
+  .login-container {
+    padding-top: unset;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(229, 228, 246);
+    background: linear-gradient(
+      131deg,
+      rgba(229, 228, 246, 1) 0%,
+      rgba(68, 103, 171, 1) 100%
+    );
+  }
 }
 
 .login {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
   padding: 20px;
-  box-shadow: 3px 3px 20px #454545;
-  width: 80vw;
+  box-shadow: unset;
+  width: 80%;
   max-width: unset;
-
   background-color: #fff;
+  height: auto;
 }
 
 @media (min-width: 768px) {
   .login {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px #454545;
     width: 40vw;
     max-width: 400px;
+    background-color: #fff;
+    height: auto;
   }
 }
 

@@ -24,6 +24,7 @@
         placeholder="Nombre"
         formControlName="fullName"
       />
+      <app-error-message [control]="form.get('fullName')!" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Correo</mat-label>
@@ -33,6 +34,7 @@
         placeholder="Correo electrónico"
         formControlName="email"
       />
+      <app-error-message [control]="form.get('email')!" />
     </mat-form-field>
 
     <mat-form-field>
@@ -44,6 +46,7 @@
         [for]="picker"
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <app-error-message [control]="form.get('birthday')!" />
     </mat-form-field>
 
     <mat-form-field>
@@ -54,6 +57,7 @@
         placeholder="Número de teléfono"
         formControlName="phoneNumber"
       />
+      <app-error-message [control]="form.get('phoneNumber')!" />
     </mat-form-field>
 
     <mat-form-field>
@@ -64,6 +68,7 @@
         placeholder="Contraseña"
         formControlName="password"
       />
+      <app-error-message [control]="form.get('password')!" />
     </mat-form-field>
 
     <button mat-button mat-flat-button color="primary">Ingresar</button>

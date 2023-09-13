@@ -5,6 +5,8 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/pages/users/services/auth.service';
 import { Observable } from 'rxjs';
 import { User } from '@angular/fire/auth';
+import { MatDialog } from '@angular/material/dialog';
+import { ProblemDialogComponent } from 'src/app/pages/home/components/problem-dialog/problem-dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -19,12 +21,18 @@ export class NavbarComponent {
 
   private readonly authService = inject(AuthService);
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     this.user$ = this.authService.userState$;
   }
 
   async onSignOut(): Promise<void> {
     await this.authService.signOut();
     this.router.navigate(['/users/sign-in']);
+  }
+
+  openProblemDialog() {
+    const dialogRef = this.dialog.open(ProblemDialogComponent, {
+      position: { top: '60px' },
+    });
   }
 }

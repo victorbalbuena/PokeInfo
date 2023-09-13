@@ -24,6 +24,7 @@
         placeholder="Correo electrónico"
         formControlName="email"
       />
+      <app-error-message [control]="form.get('email')!" />
     </mat-form-field>
 
     <mat-form-field>
@@ -34,6 +35,7 @@
         placeholder="Contraseña"
         formControlName="password"
       />
+      <app-error-message [control]="form.get('password')!" />
     </mat-form-field>
 
     <button mat-button mat-flat-button color="primary">Ingresar</button>

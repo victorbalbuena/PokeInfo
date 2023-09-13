@@ -49,6 +49,12 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'problem',
+    canActivate: [onlyLoggedInGuard],
+    loadChildren: () =>
+      import('./pages/problem/problem.module').then((m) => m.ProblemModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',

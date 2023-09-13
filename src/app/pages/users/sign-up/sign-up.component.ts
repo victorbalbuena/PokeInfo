@@ -22,8 +22,12 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { email, password } = this.form.value;
-    this.authService.signUp(email, password);
+    if (this.form.valid) {
+      const { email, password } = this.form.value;
+      this.authService.signUp(email, password);
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   signInGoogle(): void {

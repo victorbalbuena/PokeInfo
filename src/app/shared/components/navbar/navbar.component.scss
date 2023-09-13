@@ -17,7 +17,7 @@
 
 .username {
   font-size: 14px;
-  max-width: 60px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -25,10 +25,20 @@
 @media (min-width: 768px) {
   .username {
     font-size: 16px;
-    max-width: unset;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .logged {
     gap: 10px;
   }
+}
+
+.menu-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
 }

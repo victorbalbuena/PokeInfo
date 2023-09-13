@@ -6,11 +6,20 @@
     <div>
       <ng-container *ngIf="user$ | async as user; else showLinks">
         <div class="logged">
-          <h3 class="username">{{ user.email }}</h3>
-
-          <button mat-flat-button color="primary" (click)="onSignOut()">
-            Sign Out
+          <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
           </button>
+          <mat-menu #menu>
+            <div class="menu-center">
+              <h3 class="username">{{ user.email }}</h3>
+              <button mat-flat-button (click)="openProblemDialog()">
+                Abrir prueba
+              </button>
+              <button mat-flat-button color="primary" (click)="onSignOut()">
+                Sign Out
+              </button>
+            </div>
+          </mat-menu>
         </div>
       </ng-container>
 

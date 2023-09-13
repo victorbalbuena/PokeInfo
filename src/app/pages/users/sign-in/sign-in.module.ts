@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth.service';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
 
 @NgModule({
   declarations: [SignInComponent],
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    ErrorMessageComponent,
   ],
   providers: [AuthService, GoogleAuthProvider],
 })
