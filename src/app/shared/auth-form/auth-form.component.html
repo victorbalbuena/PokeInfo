@@ -16,15 +16,6 @@
 
     <mat-divider style="padding-bottom: 20px"></mat-divider>
 
-    <!-- <mat-form-field>
-      <mat-label>Nombre</mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="Nombre"
-        formControlName="fullName"
-      />
-    </mat-form-field> -->
     <mat-form-field>
       <mat-label>Correo</mat-label>
       <input
@@ -34,27 +25,6 @@
         formControlName="email"
       />
     </mat-form-field>
-
-    <!-- <mat-form-field>
-      <mat-label>Fecha de nacimiento</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="birthday" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field>
-      <mat-label>Telefono</mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="Número de teléfono"
-        formControlName="phoneNumber"
-      />
-    </mat-form-field> -->
 
     <mat-form-field>
       <mat-label>Contraseña</mat-label>
@@ -67,7 +37,7 @@
     </mat-form-field>
 
     <div class="flex justify-content-end mt-5" *ngIf="action === 'signIn'">
-      <a routerLink="/user/forgot-password">¿Olvidaste tu contraseña?</a>
+      <a routerLink="/users/forgot-password">¿Olvidaste tu contraseña?</a>
     </div>
 
     <button [disabled]="!form.valid" mat-button mat-flat-button color="primary">

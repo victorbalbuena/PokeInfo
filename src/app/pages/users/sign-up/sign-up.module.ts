@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [SignUpComponent],
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MaterialModule,
   ],
   providers: [AuthService, GoogleAuthProvider],
 })

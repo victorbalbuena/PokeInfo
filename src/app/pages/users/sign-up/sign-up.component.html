@@ -1,21 +1,75 @@
 <div class="login-container">
-  <div class="login">
-    <span class="text-lg mb-4">Sign Up</span>
+  <form class="login" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-header">
+      <span class="form-header__logo">Pokemos Info</span>
+      <span class="form-header__title text-lg mb-4">Sign Up</span>
+
+      <button class="form-header__button" (click)="signInGoogle()">
+        <img
+          style="width: 18px"
+          src="./../../../assets/google-icon.png"
+          alt=""
+        />
+        Sign up with Google
+      </button>
+    </div>
+
+    <mat-divider style="padding-bottom: 20px"></mat-divider>
 
     <mat-form-field>
-      <mat-label>Usuario</mat-label>
-      <input type="text" matInput placeholder="Nombre" />
+      <mat-label>Nombre</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Nombre"
+        formControlName="fullName"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Correo</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Correo electrónico"
+        formControlName="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefono</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Número de teléfono"
+        formControlName="phoneNumber"
+      />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Contraseña</mat-label>
-      <input type="text" matInput placeholder="Nombre" />
+      <input
+        type="password"
+        matInput
+        placeholder="Contraseña"
+        formControlName="password"
+      />
     </mat-form-field>
 
     <button mat-button mat-flat-button color="primary">Ingresar</button>
 
     <div class="flex justify-content-end mt-5">
-      <a routerLink="/user/sign-in">¿No tienes una cuenta?</a>
+      <p>Si ya tienes una cuenta <a routerLink="/users/sign-in">Sign in</a></p>
     </div>
-  </div>
+  </form>
 </div>
