@@ -2,7 +2,6 @@ import {
   Auth,
   GoogleAuthProvider,
   User,
-  UserCredential,
   authState,
   createUserWithEmailAndPassword,
   sendEmailVerification,
@@ -12,6 +11,14 @@ import {
 } from '@angular/fire/auth';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  Firestore,
+  doc,
+  setDoc,
+  AggregateField,
+  addDoc,
+  collection,
+} from '@angular/fire/firestore';
 
 interface ErrorResponse {
   code: string;
@@ -26,7 +33,7 @@ export class AuthService {
   private readonly googleProvider = inject(GoogleAuthProvider);
   private readonly router = inject(Router);
 
-  constructor() {
+  constructor(private firestore: Firestore) {
     // this.signOut();
   }
 
@@ -42,7 +49,13 @@ export class AuthService {
     }
   }
 
-  async signUp(email: string, password: string): Promise<void> {
+  async signUp(
+    email: string,
+    password: string,
+    fullname: string,
+    birthdate: string,
+    phonenumber: string
+  ): Promise<void> {
     try {
       // Create account
       const { user } = await createUserWithEmailAndPassword(
@@ -50,6 +63,8 @@ export class AuthService {
         email,
         password
       );
+
+      this.addDataUser(email, fullname, birthdate, phonenumber);
 
       // Send email
       await this.sendEmailVerification(user);
@@ -61,6 +76,27 @@ export class AuthService {
     }
   }
 
+  async addDataUser(
+    email: string,
+    fullname: string,
+    birthdate: string,
+    phonenumber: string
+  ) {
+    console.log(email);
+    const userData = {
+      email: email,
+      fullname: fullname,
+      birthdate: birthdate,
+      phonenumber: phonenumber,
+    };
+
+    try {
+      await addDoc(collection(this.firestore, 'users'), userData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async signIn(email: string, password: string): Promise<void> {
     try {
       // Sign In
@@ -69,6 +105,7 @@ export class AuthService {
         email,
         password
       );
+
       // Check if user is already verify
       this.checkUserIsVerified(user);
     } catch (error: unknown) {
