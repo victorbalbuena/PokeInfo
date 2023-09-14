@@ -19,6 +19,7 @@ import {
   addDoc,
   collection,
 } from '@angular/fire/firestore';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface ErrorResponse {
   code: string;
@@ -33,7 +34,7 @@ export class AuthService {
   private readonly googleProvider = inject(GoogleAuthProvider);
   private readonly router = inject(Router);
 
-  constructor(private firestore: Firestore) {
+  constructor(private firestore: Firestore, private snackBar: MatSnackBar) {
     // this.signOut();
   }
 
@@ -73,6 +74,7 @@ export class AuthService {
       const { code, message } = error as ErrorResponse;
       console.log('Code', code);
       console.log('Message', message);
+      this.showSnackBar(`Error! ${code}`);
     }
   }
 
@@ -112,6 +114,7 @@ export class AuthService {
       const { code, message } = error as ErrorResponse;
       console.log('Code', code);
       console.log('Message', message);
+      this.showSnackBar(`Error! ${code}`);
     }
   }
 
@@ -144,5 +147,11 @@ export class AuthService {
       ? '/users/home'
       : '/users/email-verification';
     this.router.navigate([route]);
+  }
+
+  showSnackBar(message: string): void {
+    this.snackBar.open(message, 'done', {
+      duration: 5000,
+    });
   }
 }
