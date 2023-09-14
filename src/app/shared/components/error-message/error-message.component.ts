@@ -7,7 +7,7 @@ import { validatorErroMessage } from './validator-message';
   selector: 'app-error-message',
   standalone: true,
   imports: [CommonModule],
-  template: ` <div>{{ errorMessage }}</div> `,
+  template: ` <div class="error">{{ errorMessage }}</div> `,
   styleUrls: ['./error-message.component.scss'],
 })
 export class ErrorMessageComponent {

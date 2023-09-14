@@ -1,7 +1,7 @@
 <p class="nav">
   <mat-toolbar color="primary" class="items-container">
     <div>
-      <span routerLink="home" style="cursor: pointer">Pokemon Info</span>
+      <span routerLink="home" style="cursor: pointer">Pokémon Info</span>
     </div>
     <div>
       <ng-container *ngIf="user$ | async as user; else showLinks">
@@ -12,11 +12,15 @@
           <mat-menu #menu>
             <div class="menu-center">
               <h3 class="username">{{ user.email }}</h3>
-              <button mat-flat-button (click)="openProblemDialog()">
+              <button
+                mat-flat-button
+                color="primary"
+                (click)="openProblemDialog()"
+              >
                 Abrir prueba
               </button>
-              <button mat-flat-button color="primary" (click)="onSignOut()">
-                Sign Out
+              <button mat-flat-button color="warn" (click)="onSignOut()">
+                Cerrar sesión
               </button>
             </div>
           </mat-menu>

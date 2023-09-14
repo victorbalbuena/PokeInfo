@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   private readonly authService = inject(AuthService);
   user$!: Observable<any>;
+  private readonly phonePattern = /^\d{10}$/;
 
   ngOnInit(): void {
     this.initForm();
@@ -37,9 +38,12 @@ export class SignUpComponent implements OnInit {
   private initForm(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       fullName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: [
+        '',
+        [Validators.required, Validators.pattern(this.phonePattern)],
+      ],
       birthday: ['', Validators.required],
     });
   }

@@ -8,9 +8,10 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ProblemDialogComponent } from './components/problem-dialog/problem-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMessageComponent } from 'src/app/shared/components/error-message/error-message.component';
+import { PokemonDialogComponent } from './components/pokemon-dialog/pokemon-dialog.component';
 
 @NgModule({
-  declarations: [HomeComponent, FilterPipe, ProblemDialogComponent],
+  declarations: [HomeComponent, FilterPipe, ProblemDialogComponent, PokemonDialogComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

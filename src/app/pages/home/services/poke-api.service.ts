@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, catchError, of, map } from 'rxjs';
 import {
+  AllPokemonInfo,
   Pokemon,
   PokemonListResult,
   Result,
@@ -34,5 +35,9 @@ export class PokeApiService {
     });
 
     return pokeList;
+  }
+
+  getPokemonByName(name: string): Observable<AllPokemonInfo> {
+    return this.http.get<AllPokemonInfo>(`${this.baseUrl}/pokemon/${name}`);
   }
 }

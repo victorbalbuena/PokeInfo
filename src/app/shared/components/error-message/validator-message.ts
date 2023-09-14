@@ -5,7 +5,7 @@ interface ErrorMessage {
 const errorMessages: ErrorMessage = {
   required: 'Este campo es requerido.',
   pattern: 'La entrada no es válida.',
-  minlength: 'Este campo debe ser de al menos 5 caracteres.',
+  minlength: 'Este campo debe ser de al menos 8 caracteres.',
 };
 
 export function validatorErroMessage(validatorName: string): string {

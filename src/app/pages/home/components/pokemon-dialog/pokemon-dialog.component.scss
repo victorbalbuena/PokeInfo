@@ -1,0 +1,14 @@
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & > p {
+    font-size: 20px;
+    font-weight: 500;
+
+    & > span {
+      font-weight: normal;
+    }
+  }
+}

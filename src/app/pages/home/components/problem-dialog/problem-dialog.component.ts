@@ -41,9 +41,7 @@ export class ProblemDialogComponent {
         return cantidadB - cantidadA;
       });
 
-      console.log('Número\tCantidad');
       for (const [numero, cantidad] of resultado) {
-        console.log(`${numero}\t${cantidad}`);
         this.resultado.push(numero + '-' + cantidad);
       }
     }

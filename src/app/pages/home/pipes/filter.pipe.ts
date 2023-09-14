@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
     if (search.length === 0) return pokemons.slice(page, page + 20);
 
     const filtered = pokemons.filter((pokemon) =>
-      pokemon.name.includes(search)
+      pokemon.name.includes(search.toLowerCase())
     );
     return filtered.slice(page, page + 20);
   }

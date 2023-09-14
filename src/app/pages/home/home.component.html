@@ -14,7 +14,7 @@
 
     <div class="home-container__inputs-buttons">
       <button mat-flat-button color="primary" (click)="prevPage()">
-        Siguiente
+        Anterior
       </button>
 
       <button
@@ -23,7 +23,7 @@
         (click)="nextPage()"
         [disabled]="(pokeList | filter : page : search).length === 0"
       >
-        Anterior
+        Siguiente
       </button>
     </div>
   </div>
@@ -31,13 +31,17 @@
   <table mat-table class="table mat-elevation-z8">
     <thead>
       <tr>
-        <th mat-header-cell>#</th>
+        <th mat-header-cell>Número</th>
         <th mat-header-cell>Nombre</th>
         <th mat-header-cell>Imagen</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pokemon of pokeList | filter : page : search">
+      <tr
+        *ngFor="let pokemon of pokeList | filter : page : search"
+        (click)="openPokemonDialog(pokemon.name)"
+        style="cursor: pointer"
+      >
         <td mat-cell>{{ pokemon.id }}</td>
         <td mat-cell>{{ pokemon.name }}</td>
         <td mat-cell>

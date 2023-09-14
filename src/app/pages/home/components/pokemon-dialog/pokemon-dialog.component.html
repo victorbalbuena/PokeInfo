@@ -1,0 +1,23 @@
+<div mat-dialog-content class="flex flex-column">
+  <ng-template #divLoading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <div *ngIf="pokemon; else divLoading" class="pokemon-container">
+    <p>
+      Número: <span>{{ pokemon.id }}</span>
+    </p>
+    <p>
+      Nombre: <span>{{ pokemon.name }}</span>
+    </p>
+    <p>
+      Peso: <span>{{ pokemon.weight }} Kg</span>
+    </p>
+    <img [src]="pokemon.sprites.front_default" alt="poke image" />
+    <p>Pokémon tipo:</p>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let type of pokemon.types">
+        {{ type.type.name }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

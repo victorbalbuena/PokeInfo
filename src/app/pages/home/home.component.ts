@@ -3,6 +3,8 @@ import { PokeApiService } from './services/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { Pokemon, Result } from './interfaces/pokemons-list.interface';
+import { PokemonDialogComponent } from './components/pokemon-dialog/pokemon-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private pokeService: PokeApiService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   public pokeList: Pokemon[] = [];
@@ -29,7 +32,6 @@ export class HomeComponent implements OnInit {
       .getAllPokemons()
       .pipe(
         tap((result) => {
-          console.log(result);
           this.pokeList = result;
         })
       )
@@ -49,5 +51,12 @@ export class HomeComponent implements OnInit {
   onSearch(search: string) {
     this.page = 0;
     this.search = search;
+  }
+
+  openPokemonDialog(name: string) {
+    const dialogRef = this.dialog.open(PokemonDialogComponent, {
+      data: name,
+      position: { top: '60px' },
+    });
   }
 }
