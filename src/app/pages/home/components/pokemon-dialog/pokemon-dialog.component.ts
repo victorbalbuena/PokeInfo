@@ -24,7 +24,6 @@ export class PokemonDialogComponent implements OnInit {
       .getPokemonByName(this.data)
       .pipe(
         tap((data) => {
-          console.log(data);
           this.pokemon = data;
         })
       )

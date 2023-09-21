@@ -84,7 +84,6 @@ export class AuthService {
     birthdate: string,
     phonenumber: string
   ) {
-    console.log(email);
     const userData = {
       email: email,
       fullname: fullname,

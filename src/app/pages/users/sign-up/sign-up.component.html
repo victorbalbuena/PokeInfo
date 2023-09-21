@@ -63,11 +63,14 @@
     <mat-form-field>
       <mat-label>Contraseña</mat-label>
       <input
-        type="password"
+        [type]="hide ? 'password' : 'text'"
         matInput
         placeholder="Contraseña"
         formControlName="password"
       />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
       <app-error-message [control]="form.get('password')!" />
     </mat-form-field>
 

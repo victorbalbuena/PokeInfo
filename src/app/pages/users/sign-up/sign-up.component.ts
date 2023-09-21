@@ -18,6 +18,8 @@ export class SignUpComponent implements OnInit {
   user$!: Observable<any>;
   private readonly phonePattern = /^\d{10}$/;
 
+  hide = true;
+
   ngOnInit(): void {
     this.initForm();
   }

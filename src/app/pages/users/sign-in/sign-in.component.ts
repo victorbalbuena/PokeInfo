@@ -15,6 +15,8 @@ export class SignInComponent implements OnInit {
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   private readonly authService = inject(AuthService);
 
+  hide = true;
+
   ngOnInit(): void {
     this.initForm();
   }

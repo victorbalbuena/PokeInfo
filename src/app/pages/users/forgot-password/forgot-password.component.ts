@@ -25,7 +25,6 @@ export class ForgotPasswordComponent implements OnInit {
       await this.authService.sendPasswordResetEmail(this.email?.value);
     } catch (error) {
       this.isEmailSent = false;
-      console.log(error);
     }
   }
 
